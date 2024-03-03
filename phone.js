@@ -3,14 +3,14 @@ class Observer {
     update(phoneNumber) {}
   }
   
-  // Define a specific observer for logging dialed phone numbers
+  
   class PhoneNumberObserver extends Observer {
     update(phoneNumber) {
       console.log(`Phone number dialed: ${phoneNumber}`);
     }
   }
   
-  // Define another observer for logging custom dialing messages
+  
   class CustomMessageObserver extends Observer {
     update(phoneNumber) {
       console.log(`Now Dialing ${phoneNumber}`);
@@ -19,10 +19,10 @@ class Observer {
   
   // Define the Telephone class
   class Telephone {
-    // Constructor to initialize phone numbers and observers
+    
     constructor() {
-      this.phoneNumbers = new Set(); // Use a Set to store unique phone numbers
-      this.observers = []; // An array to store registered observers
+      this.phoneNumbers = new Set(); 
+      this.observers = []; 
     }
   
     // Method to add an observer to the list
@@ -30,7 +30,7 @@ class Observer {
       this.observers.push(observer);
     }
   
-    // Method to remove an observer from the list
+   
     removeObserver(observer) {
       const index = this.observers.indexOf(observer);
       if (index !== -1) {
@@ -38,19 +38,18 @@ class Observer {
       }
     }
   
-    // Method to notify all observers when a phone number is dialed
+   
     notifyObservers(phoneNumber) {
       this.observers.forEach((observer) => {
         observer.update(phoneNumber);
       });
     }
   
-    // Method to add a phone number to the list
+    
     addPhoneNumber(phoneNumber) {
       this.phoneNumbers.add(phoneNumber);
     }
   
-    // Method to remove a phone number from the list
     removePhoneNumber(phoneNumber) {
       this.phoneNumbers.delete(phoneNumber);
     }
@@ -66,9 +65,6 @@ class Observer {
     }
   }
   
-  // Example usage:
-  
-  // Creating instances of observers
   const phoneNumberObserver = new PhoneNumberObserver();
   const customMessageObserver = new CustomMessageObserver();
   
@@ -85,5 +81,5 @@ class Observer {
   
   // Dialing a phone number
   telephone.dialPhoneNumber("1234567890");
-  telephone.dialPhoneNumber("2345678901");  // This will trigger both observers
+  telephone.dialPhoneNumber("2345678901"); 
   
